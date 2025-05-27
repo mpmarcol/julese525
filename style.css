@@ -39,12 +39,17 @@ footer {
 
 /* Blog Post Styling */
 .blog-post {
+    display: none; /* Hidden by default for single post view */
     background-color: #fff;
     padding: 20px;
     margin-bottom: 30px;
     border: 1px solid #ddd;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Softer shadow */
     border-radius: 5px; /* Slightly rounded corners */
+}
+
+.blog-post.active-post {
+    display: block; /* Shown when active */
 }
 
 .blog-post h2 {
@@ -97,12 +102,40 @@ footer {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
+/* Blog Navigation Styling */
+.blog-navigation {
+    text-align: center;
+    margin-bottom: 30px; /* Space below navigation buttons */
+}
+
+.nav-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #0056b3;
+}
+
+.nav-button:disabled {
+    background-color: #6c757d; /* Muted color */
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 600px; /* Adjust as needed */
+  max-width: 800px; /* Updated to accommodate 800x600 images */
   position: relative;
-  margin: 20px auto 30px auto; /* Added more bottom margin */
+  margin: 20px auto 30px auto; /* Existing margin, should still be fine */
 }
 
 /* Hide all images by default */
