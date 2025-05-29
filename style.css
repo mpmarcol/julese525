@@ -1,95 +1,300 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
+/* Global Reset and Basic Styling */
+html, body {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #FFF0F5; /* Light Old Rose */
+    color: #000080; /* Dark Blue Text */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    line-height: 1.6; /* Improved readability */
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #000080; /* Dark Blue */
+    color: #FFFFFF; /* White text for header */
     padding: 1em 0;
     text-align: center;
 }
 
-header h1 {
+header h1 { /* Assuming h1 might be used in header */
     margin: 0;
 }
 
 main {
     flex: 1; /* Allows main to take up available space */
-    padding: 1em;
-    width: 80%;
-    margin: 0 auto; /* Centers the main content */
-    max-width: 1200px; /* Optional: restrict max width */
+    padding: 1em; /* Basic padding for main content area */
+    width: 90%; /* Constrain width slightly */
+    max-width: 1200px; /* Max width for larger screens */
+    margin: 20px auto; /* Top/bottom margin and centered */
 }
 
+/* --- Footer Styles --- */
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em 0;
-    /* position: fixed; /* Removed for now, will let it flow naturally */
-    /* bottom: 0; */
-    /* width: 100%; */
+    background-color: #000080; /* Dark Blue */
+    color: #ADD8E6; /* Light French Blue text */
+    padding: 30px 0 0; /* Padding top, bottom will be handled by footer-bottom */
+    width: 100%;
+    font-size: 0.95em; /* Slightly smaller font for footer content */
 }
 
-/* Blog Post Styling */
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px; /* Ensures columns don't get too squished before wrapping */
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.footer-column h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ADD8E6;
+    padding-bottom: 10px; /* Increased padding */
+    font-weight: bold; /* Make headings bolder */
+    color: #FFFFFF; /* White for footer headings for better contrast on dark blue */
+}
+
+.footer-column p, 
+.footer-column ul, 
+.footer-column li {
+    color: #ADD8E6; /* Light French Blue for text and list items */
+    margin-bottom: 10px; /* Consistent margin for p and li */
+}
+
+.footer-column a {
+    color: #ADD8E6; /* Light French Blue for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+    color: #FFFFFF; /* White on hover for links */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0; /* Increased padding */
+    border-top: 1px solid #000050; /* Darker shade of blue for separator */
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #ADD8E6; /* Ensure text color matches */
+}
+
+/* General link styling */
+a {
+    color: #0000CD; /* Medium Blue for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- Responsive Design Adjustments --- */
+
+/* General Typography and Spacing Improvements for smaller screens */
+@media (max-width: 768px) {
+    body {
+        line-height: 1.5; /* Slightly tighter line height for smaller text */
+    }
+
+    main {
+        padding: 0.75em; /* Reduce padding on main content area */
+        width: 95%; /* Allow slightly more width */
+    }
+
+    .section-title {
+        font-size: 1.8em; /* Reduce section title size */
+        margin-bottom: 20px;
+    }
+
+    .breadcrumbs-container p {
+        font-size: 0.85em; /* Smaller breadcrumbs text */
+        padding: 0 5px; /* Adjust padding if needed */
+    }
+}
+
+
+/* Header and Navigation Adjustments */
+@media (max-width: 768px) { /* Breakpoint for header/nav changes */
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* Add some gap when stacked */
+    }
+
+    .logo-area {
+        margin-bottom: 10px; /* Space below logo when stacked */
+    }
+    
+    .logo-text {
+        font-size: 1.3em; /* Slightly smaller logo text */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center; /* Center nav items when stacked */
+        width: 100%;
+    }
+
+    .main-nav li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator for stacked items */
+    }
+    .main-nav li:last-child {
+        border-bottom: none;
+    }
+
+    .main-nav a, .dropbtn {
+        padding: 12px 10px; /* Adjust padding for stacked items */
+    }
+    
+    .dropdown-content {
+        /* Adjust dropdown to work better in stacked nav if needed */
+        /* For simplicity, current hover dropdown might be okay, or it might need JS for click-to-open on mobile */
+        /* For now, we assume hover is acceptable or will be a future JS task */
+        position: static; /* Change from absolute to static or relative for stacked layout */
+        background-color: rgba(0,0,0,0.1); /* Slight indent visual */
+        box-shadow: none;
+        border-radius: 0;
+        padding-left: 20px; /* Indent dropdown items */
+    }
+
+    /* Sticky header adjustments for stacked nav */
+    #main-header.sticky .header-container {
+        gap: 5px;
+    }
+    #main-header.sticky .logo-text {
+        font-size: 1.1em;
+    }
+     #main-header.sticky .main-nav a, #main-header.sticky .dropbtn {
+        /* Ensure colors are still correct */
+        color: #000080; 
+    }
+    #main-header.sticky .main-nav a:hover, #main-header.sticky .dropbtn:hover {
+        color: #0000CD;
+    }
+    /* Re-evaluate body padding for sticky header if header height changes significantly when stacked */
+    /* The JS should ideally handle this dynamically based on header.offsetHeight */
+}
+
+/* Footer Adjustments - already uses flex-wrap, so columns stack. Check padding. */
+@media (max-width: 768px) {
+    .footer-column {
+        padding: 0 10px; /* Reduce padding slightly for smaller screens */
+        min-width: 100%; /* Let them take full width when stacked */
+        text-align: center; /* Center text in footer columns on mobile */
+    }
+    .footer-column h4 {
+        text-align: center; /* Center footer column titles */
+    }
+}
+
+
+/* Blog Page Specific Adjustments */
+@media (max-width: 480px) { /* For very small screens */
+    .blog-navigation .nav-button {
+        display: block; /* Stack Prev/Next Post buttons */
+        width: 80%;
+        margin: 10px auto; /* Center them with some vertical space */
+    }
+
+    .comments-section textarea {
+        min-height: 70px; /* Slightly smaller textarea */
+    }
+    .comments-section button {
+        padding: 8px 15px; /* Smaller comment button */
+    }
+}
+
+/* Ensure general link styling doesn't override specific footer link styling if needed */
+footer a {
+    color: #ADD8E6; /* Explicitly set footer link color */
+}
+
+footer a:hover {
+    color: #FFFFFF; /* Explicitly set footer link hover color */
+    text-decoration: underline;
+}
+
+/* Styling for blog posts on blog.html - these were specific before, adjust if needed or keep for blog page */
 .blog-post {
-    display: none; /* Hidden by default for single post view */
-    background-color: #fff;
+    display: none; /* Hidden by default for single post view on blog.html */
+    background-color: #fff; /* White background for posts, good contrast with #FFF0F5 */
+    color: #333; /* Darker text for blog posts for readability */
     padding: 20px;
     margin-bottom: 30px;
     border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Softer shadow */
-    border-radius: 5px; /* Slightly rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 5px;
 }
 
 .blog-post.active-post {
-    display: block; /* Shown when active */
+    display: block; /* Shown when active on blog.html */
 }
 
 .blog-post h2 {
-    margin-top: 0; /* Remove default top margin if any */
+    margin-top: 0;
+    color: #000080; /* Dark Blue for post titles */
 }
 
 .publish-date {
     font-size: 0.85em;
-    color: #6c757d; /* Bootstrap's secondary text color */
+    color: #555; /* Slightly darker grey for publish date */
     margin-bottom: 20px;
 }
 
-/* Comments Section Styling */
+/* Comments Section Styling for blog.html */
 .comments-section {
-    margin-top: 30px; /* Space above comments section */
-    padding-top: 20px; /* Space inside the top of comments section */
-    border-top: 1px solid #eee; /* Separator line */
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
 }
 
 .comments-section h3 {
-    margin-top: 0; /* Using padding-top on parent for space */
+    margin-top: 0;
     margin-bottom: 15px;
     font-size: 1.25em;
+    color: #000080; /* Dark Blue */
 }
 
 .comments-section textarea {
     width: 100%;
     min-height: 100px;
     padding: 10px;
-    border: 1px solid #ced4da; /* Bootstrap's form input border color */
+    border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     margin-bottom: 10px;
-    font-family: inherit; /* Use body font */
+    font-family: inherit;
     font-size: 1em;
+    color: #333; /* Text color inside textarea */
 }
 
 .comments-section button {
     padding: 10px 20px;
-    background-color: #007bff; /* Bootstrap's primary blue */
+    background-color: #007bff; /* Primary blue */
     color: white;
     border: none;
     cursor: pointer;
@@ -99,19 +304,19 @@ footer {
 }
 
 .comments-section button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; /* Darker blue */
 }
 
-/* Blog Navigation Styling */
+/* Blog Navigation Styling for blog.html */
 .blog-navigation {
     text-align: center;
-    margin-bottom: 30px; /* Space below navigation buttons */
+    margin-bottom: 30px;
 }
 
 .nav-button {
     padding: 10px 20px;
     margin: 0 10px;
-    background-color: #007bff;
+    background-color: #007bff; /* Primary blue */
     color: white;
     border: none;
     border-radius: 4px;
@@ -121,67 +326,425 @@ footer {
 }
 
 .nav-button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue */
 }
 
 .nav-button:disabled {
-    background-color: #6c757d; /* Muted color */
+    background-color: #6c757d; /* Muted grey */
     opacity: 0.65;
     cursor: not-allowed;
 }
 
-
-/* Slideshow container */
+/* Slideshow container for blog.html */
 .slideshow-container {
-  max-width: 800px; /* Updated to accommodate 800x600 images */
+  max-width: 800px;
   position: relative;
-  margin: 20px auto 30px auto; /* Existing margin, should still be fine */
+  margin: 20px auto 30px auto;
+  background-color: #f9f9f9; /* Light background for the slideshow area itself */
+  border: 1px solid #eee;
+  padding: 10px; /* Padding around the image */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Hide all images by default */
 .slide {
   display: none;
   max-width: 100%;
   height: auto;
-  vertical-align: middle; /* Prevents extra space below if container is inline-block */
+  vertical-align: middle;
+  border-radius: 3px; /* Rounded corners for slides */
 }
 
-/* Display the active slide */
 .slide.active-slide {
   display: block;
 }
 
-/* Next & previous buttons */
-.prev, .next {
+.prev, .next { /* Slideshow navigation buttons */
   cursor: pointer;
   position: absolute;
   top: 50%;
   width: auto;
   padding: 16px;
-  margin-top: -22px; /* Adjusts vertical centering */
+  margin-top: -25px; /* Adjusted for padding and potential border */
   color: white;
   font-weight: bold;
   font-size: 20px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.4); /* Slightly darker for better visibility */
 }
 
-/* Position the "next button" to the right */
 .next {
-  right: 0;
+  right: 10px; /* Positioned within the padded container */
   border-radius: 3px 0 0 3px;
 }
 
-/* Position the "prev button" to the left */
 .prev {
-  left: 0;
-  border-radius: 0 3px 3px 0; /* Corrected: was same as next */
+  left: 10px; /* Positioned within the padded container */
+  border-radius: 0 3px 3px 0;
 }
 
-
-/* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.7);
+}
+
+/* --- New Header Styles --- */
+#main-header {
+    background-color: #000080; /* Dark Blue */
+    color: #FFFFFF;
+    padding: 10px 0; /* Adjusted padding */
+    text-align: left; /* Align text to left for flexbox items */
+    transition: padding 0.3s ease, background-color 0.3s ease; /* Smooth transition for sticky state */
+    position: relative; /* For z-index stacking if needed before sticky */
+    z-index: 100; /* Ensure header is above other non-sticky content */
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.logo-placeholder {
+    width: 100px;
+    height: 40px;
+    background-color: #ccc; /* Placeholder color */
+    margin-right: 10px;
+    transition: width 0.3s ease, height 0.3s ease; /* Smooth transition for size change */
+}
+
+.logo-text {
+    font-size: 1.5em; /* Example size */
+    font-weight: bold;
+    color: #FFFFFF; /* White text for logo */
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav li {
+    position: relative; /* For dropdown positioning */
+}
+
+.main-nav a, .dropbtn {
+    display: block;
+    color: #FFFFFF; /* White links in header */
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover, .dropbtn:hover {
+    color: #ADD8E6; /* Light Blue for hover */
+}
+
+/* Dropdown specific styles */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 180px; /* Adjusted width */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px; /* Rounded corners for dropdown */
+    padding: 5px 0; /* Padding inside dropdown */
+}
+
+.dropdown-content a {
+    color: #000080; /* Dark Blue for dropdown links */
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.95em;
+}
+
+.dropdown-content a:hover {
+    background-color: #e0e0e0; /* Hover background for dropdown links */
+    color: #0000CD; /* Medium Blue on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Sticky Header Styles */
+#main-header.sticky {
+    position: fixed;
+    top: 0;
+    left: 0; /* Ensure it spans full width */
+    width: 100%;
+    background-color: #FFF0F5; /* Light Old Rose for sticky header background */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    padding: 5px 0; /* Reduced padding for sticky state */
+    z-index: 1000; /* Ensure sticky header is on top of everything */
+}
+
+#main-header.sticky .logo-placeholder {
+    width: 60px;
+    height: 24px;
+}
+
+#main-header.sticky .logo-text {
+    color: #000080; /* Dark Blue text for sticky header logo */
+    font-size: 1.2em; /* Slightly smaller logo text when sticky */
+}
+
+#main-header.sticky .main-nav a, #main-header.sticky .dropbtn {
+    color: #000080; /* Dark Blue links for sticky header */
+}
+
+#main-header.sticky .main-nav a:hover, #main-header.sticky .dropbtn:hover {
+    color: #0000CD; /* Medium Blue for hover in sticky state */
+}
+
+/* Padding for body when header is sticky */
+body.header-sticky-padding {
+    padding-top: 70px; /* Default: Adjust this value based on actual sticky header height */
+    /* This will be dynamically adjusted by JS if possible, otherwise set a safe fixed value */
+}
+
+/* --- Breadcrumbs Styles --- */
+.breadcrumbs-container {
+    padding: 10px 0; /* Vertical padding, horizontal will be handled by inner p */
+    background-color: #f0f0f0; /* Light grey background */
+    border-bottom: 1px solid #ddd; /* Separator line */
+    font-size: 0.9em;
+    color: #333; /* Slightly darker text for breadcrumbs for readability */
+}
+
+.breadcrumbs-container p {
+    margin: 0;
+    width: 90%; /* Match main content width */
+    max-width: 1200px; /* Match main content max-width */
+    margin: 0 auto; /* Center the breadcrumb text container */
+    padding: 0 10px; /* Add some horizontal padding if inner p is used for width constraint */
+}
+
+.breadcrumbs-container a {
+    color: #000080; /* Dark Blue for links */
+    text-decoration: none;
+}
+
+.breadcrumbs-container a:hover {
+    text-decoration: underline;
+}
+
+/* --- Hero Section Styles (for index.html) --- */
+.hero-section {
+    width: 100%; /* Takes full width of its parent <main> container */
+    margin-bottom: 30px; /* Space after the hero image */
+    line-height: 0; /* To remove any potential space below the image if it's treated as inline-block internally */
+}
+
+.hero-section img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    max-height: 500px; /* Cap the height for very wide screens, adjust as needed */
+    object-fit: cover; /* Ensures the image covers the area, may crop */
+    border-radius: 5px; /* Optional: Rounded corners for the hero image */
+}
+
+/* --- Latest Activity Section Styles (for index.html) --- */
+.latest-activity-section {
+    padding: 20px 0; /* Vertical padding for the section */
+    margin-bottom: 30px; /* Space after the section */
+    background-color: #FFFFFF; /* White background for this section */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.section-title { /* General section title, can be reused */
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px; /* Increased margin for better separation */
+    color: #000080; /* Dark Blue */
+}
+
+.activity-content {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 30px; /* Increased gap */
+    padding: 0 20px; /* Horizontal padding within the content area */
+}
+
+.activity-video {
+    flex: 1 1 560px; /* Flex basis of 560px, can grow and shrink */
+    max-width: 560px; /* Ensure it doesn't get too large */
+    min-width: 300px; /* Ensure it doesn't get too small before wrapping */
+}
+
+.activity-video iframe {
+    width: 100%;
+    height: 315px; /* Default height for 16:9 aspect ratio based on 560px width */
+    border: none; /* Remove default iframe border */
+    border-radius: 5px; /* Match other rounded corners */
+}
+
+.activity-description {
+    flex: 1 1 50%; /* Allow description to take up remaining space, basis of 50% */
+    color: #333; /* Darker text for readability */
+}
+
+.activity-description p {
+    margin-bottom: 1em;
+    line-height: 1.7; /* Slightly more line height for description */
+}
+
+.read-more-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px; /* Slightly larger padding */
+    background-color: #000080; /* Dark Blue */
+    color: #FFF0F5; /* Light Old Rose text */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #0000CD; /* Medium Blue on hover */
+}
+
+/* Responsive adjustments for Latest Activity Section */
+@media (max-width: 768px) {
+    .activity-content {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        gap: 20px; /* Adjust gap for stacked layout */
+    }
+
+    .activity-video {
+        width: 100%; /* Video takes full width of the centered column */
+        max-width: 500px; /* Max width for video on smaller screens */
+        flex-basis: auto; /* Reset flex-basis */
+    }
+    
+    .activity-video iframe {
+        /* Adjust height responsively using aspect ratio padding trick if needed, 
+           or set a fixed smaller height. For simplicity, we'll keep 315px or allow it to be less.
+           If video appears too tall, an aspect-ratio box would be better.
+           For now, we assume 315px is acceptable or browser scales it with width 100% */
+    }
+
+    .activity-description {
+        text-align: center; /* Center text content in description */
+        flex-basis: auto; /* Reset flex-basis */
+    }
+}
+
+/* --- Carousel Section Styles (for index.html) --- */
+.carousel-section {
+    padding: 20px 0; /* Vertical padding */
+    margin-bottom: 30px; /* Space after the section */
+    background-color: #f9f9f9; /* Light background for the carousel section */
+    border-top: 1px solid #eee; /* Separator line from content above */
+    border-bottom: 1px solid #eee; /* Separator line from content below */
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 80%; /* Default for larger screens */
+    margin: auto; /* Center the carousel */
+    overflow: hidden; /* Hide slides that are not active */
+    border-radius: 5px; /* Match other rounded corners */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.carousel-slide {
+    display: none; /* Hide all slides by default */
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    vertical-align: middle; /* Align image properly if there's any line-height issue */
+}
+
+/* Navigation arrows */
+.carousel-prev, .carousel-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px; /* Adjust vertical centering */
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px; /* Increased font size for better visibility */
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.carousel-next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Dot indicators */
+.carousel-dots {
+    text-align: center;
+    padding: 15px 0; /* Space around dots */
+}
+
+.carousel-dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px; /* Increased margin for better spacing */
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active-dot, .carousel-dot:hover {
+    background-color: #717171;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .carousel-container {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+
+    .carousel-prev, .carousel-next {
+        font-size: 16px; /* Slightly smaller arrows on mobile */
+        padding: 12px;
+    }
+
+    .carousel-dot {
+        height: 12px;
+        width: 12px;
+    }
+}
+
+/* Ensure general link styling doesn't override specific footer link styling if needed */
+footer a {
+    color: #ADD8E6; /* Explicitly set footer link color */
+}
+
+footer a:hover {
+    color: #FFFFFF; /* Explicitly set footer link hover color */
+    text-decoration: underline;
 }

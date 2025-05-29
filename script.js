@@ -156,3 +156,108 @@ if (prevPostButton && nextPostButton && blogPosts.length > 0) {
         showPost(0);
     }
 }
+
+// --- Sticky Header Functionality ---
+window.addEventListener('DOMContentLoaded', (event) => {
+    const header = document.getElementById("main-header");
+    if (!header) {
+        console.error("Sticky header functionality: Main header not found.");
+        return;
+    }
+
+    const stickyOffset = header.offsetTop; // Get the original top offset of the header
+
+    function handleStickyHeader() {
+        const headerHeight = header.offsetHeight;
+
+        if (window.pageYOffset > stickyOffset) {
+            if (!header.classList.contains("sticky")) {
+                header.classList.add("sticky");
+                document.body.classList.add("header-sticky-padding");
+                document.body.style.paddingTop = headerHeight + "px";
+            }
+        } else {
+            if (header.classList.contains("sticky")) {
+                header.classList.remove("sticky");
+                document.body.classList.remove("header-sticky-padding");
+                document.body.style.paddingTop = "0px";
+            }
+        }
+    }
+
+    // Debounce function to limit the rate of execution
+    function debounce(func, wait = 10, immediate = true) {
+        let timeout;
+        return function() {
+            const context = this, args = arguments;
+            const later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            const callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
+
+    // Initial check in case page is already scrolled
+    handleStickyHeader(); 
+    
+    // Listen for scroll events (debounced for performance)
+    window.addEventListener("scroll", debounce(handleStickyHeader, 10));
+
+    // Optional: Recalculate on resize if header height might change
+    // window.addEventListener("resize", debounce(function() {
+    //    // Recalculate stickyOffset if header's position relative to document changes
+    //    // For this simple case, we assume offsetTop doesn't change unless layout drastically changes.
+    //    // However, recalculating body padding based on new header height is important.
+    //    if (header.classList.contains("sticky")) {
+    //        document.body.style.paddingTop = header.offsetHeight + "px";
+    //    }
+    // }, 50));
+});
+
+// --- Image Carousel Functionality (for index.html) ---
+window.addEventListener('DOMContentLoaded', (event) => {
+    // Check if carousel elements exist on the page
+    const carouselSlides = document.getElementsByClassName("carousel-slide");
+    if (carouselSlides.length === 0) {
+        return; // No carousel on this page, so do nothing
+    }
+
+    let carouselSlideIndex = 1;
+    const carouselDots = document.getElementsByClassName("carousel-dot");
+
+    function showCarouselSlides(n) {
+        let i;
+        if (n > carouselSlides.length) { carouselSlideIndex = 1 }
+        if (n < 1) { carouselSlideIndex = carouselSlides.length }
+        
+        for (i = 0; i < carouselSlides.length; i++) {
+            carouselSlides[i].style.display = "none";
+        }
+        
+        for (i = 0; i < carouselDots.length; i++) {
+            carouselDots[i].className = carouselDots[i].className.replace(" active-dot", "");
+        }
+        
+        carouselSlides[carouselSlideIndex - 1].style.display = "block";
+        if (carouselDots[carouselSlideIndex - 1]) { // Check if dot exists
+            carouselDots[carouselSlideIndex - 1].className += " active-dot";
+        }
+    }
+
+    // Make plusCarouselSlides and currentCarouselSlide globally accessible if called by inline HTML onclick
+    // Alternatively, attach event listeners programmatically. For now, sticking to onclick.
+    window.plusCarouselSlides = function(n) {
+        showCarouselSlides(carouselSlideIndex += n);
+    }
+
+    window.currentCarouselSlide = function(n) {
+        showCarouselSlides(carouselSlideIndex = n);
+    }
+
+    // Initial display for the carousel
+    showCarouselSlides(carouselSlideIndex);
+});
