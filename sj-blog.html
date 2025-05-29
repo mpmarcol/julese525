@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Familias por la Escuela</title> {/* Title from original blog.html */}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="sj-style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="cabecera-principal">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="sj-index.html">
+                <span class="texto-logo">Familias por la Escuela</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navegacionPrincipal" aria-controls="navegacionPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navegacionPrincipal">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="sj-index.html">Noticias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sj-index.html#institucional">Institucional</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" aria-current="page" href="#" id="navbarDropdownActividades" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Actividades
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownActividades">
+                            <li><a class="dropdown-item active" href="sj-blog.html">Blog</a></li>
+                            <li><a class="dropdown-item" href="sj-index.html#eventos">Eventos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sj-index.html#consultas">Consultas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sj-index.html#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pt-5"> {/* Added pt-5 for fixed-top navbar offset */}
+        <nav aria-label="breadcrumb" id="migas-de-pan-contenedor-blog">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="sj-index.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Blog</li>
+            </ol>
+        </nav>
+
+        <main>
+            {/* Blog navigation buttons (Previous/Next Post) are removed as per refactoring strategy */}
+            {/* <div class="navegacion-blog mb-4 text-center">
+                <button id="boton-articulo-anterior" class="btn btn-secondary" disabled>&laquo; Artículo Anterior</button>
+                <button id="boton-articulo-siguiente" class="btn btn-secondary">Artículo Siguiente &raquo;</button>
+            </div> */}
+
+            <article class="card mb-4 articulo-blog" id="articulo-blog-1">
+                <div class="card-body">
+                    <h2 class="card-title">BLABLA Title 1</h2>
+                    <p class="text-muted fecha-publicacion">Published on October 26, 2023</p>
+                    <p class="card-text">blablabla content for post 1.</p>
+                    <p class="card-text">blablabla content for post 1, continued.</p>
+                    <p class="card-text">More blablabla for post 1.</p>
+                    <p class="card-text">Final blablabla for post 1.</p>
+                    
+                    <div id="carruselArticulo1" class="carousel slide mb-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://via.placeholder.com/800x600/FF0000/FFFFFF?Text=Post1_Image1" class="d-block w-100" alt="Post 1 Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/800x600/0000FF/FFFFFF?Text=Post1_Image2" class="d-block w-100" alt="Post 1 Image 2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselArticulo1" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselArticulo1" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+
+                    <div class="seccion-comentarios mt-4">
+                        <h3>Comentarios</h3>
+                        <div class="mb-3">
+                            <label for="entrada-comentario-1" class="form-label">Deja un comentario:</label>
+                            <textarea class="form-control entrada-comentario" id="entrada-comentario-1" rows="3" aria-label="Leave a comment for Post 1"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary enviar-comentario">Enviar Comentario</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card mb-4 articulo-blog" id="articulo-blog-2">
+                <div class="card-body">
+                    <h2 class="card-title">BLABLA Title 2</h2>
+                    <p class="text-muted fecha-publicacion">Published on November 05, 2023</p>
+                    <p class="card-text">This is some new blablabla for Post 2.</p>
+                    <p class="card-text">Continuing the blablabla for Post 2 with more details.</p>
+                    <p class="card-text">Post 2 blablabla is quite interesting.</p>
+                    <p class="card-text">The final paragraph of blablabla for Post 2.</p>
+
+                    <div id="carruselArticulo2" class="carousel slide mb-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://via.placeholder.com/800x600/00FF00/000000?Text=Post2_Image1" class="d-block w-100" alt="Post 2 Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/800x600/FFFF00/000000?Text=Post2_Image2" class="d-block w-100" alt="Post 2 Image 2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselArticulo2" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselArticulo2" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+
+                    <div class="seccion-comentarios mt-4">
+                        <h3>Comentarios</h3>
+                        <div class="mb-3">
+                            <label for="entrada-comentario-2" class="form-label">Deja un comentario:</label>
+                            <textarea class="form-control entrada-comentario" id="entrada-comentario-2" rows="3" aria-label="Leave a comment for Post 2"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary enviar-comentario">Enviar Comentario</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card mb-4 articulo-blog" id="articulo-blog-3">
+                <div class="card-body">
+                    <h2 class="card-title">BLABLA Title 3</h2>
+                    <p class="text-muted fecha-publicacion">Published on November 12, 2023</p>
+                    <p class="card-text">Welcome to the blablabla of the third post.</p>
+                    <p class="card-text">This blablabla section for Post 3 has unique content.</p>
+                    <p class="card-text">Exploring further blablabla topics in Post 3.</p>
+                    <p class="card-text">Concluding the blablabla for this third post.</p>
+
+                    <div id="carruselArticulo3" class="carousel slide mb-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://via.placeholder.com/800x600/FF00FF/FFFFFF?Text=Post3_Image1" class="d-block w-100" alt="Post 3 Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/800x600/00FFFF/000000?Text=Post3_Image2" class="d-block w-100" alt="Post 3 Image 2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselArticulo3" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselArticulo3" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                    <div class="seccion-comentarios mt-4">
+                        <h3>Comentarios</h3>
+                        <div class="mb-3">
+                            <label for="entrada-comentario-3" class="form-label">Deja un comentario:</label>
+                            <textarea class="form-control entrada-comentario" id="entrada-comentario-3" rows="3" aria-label="Leave a comment for Post 3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary enviar-comentario">Enviar Comentario</button>
+                    </div>
+                </div>
+            </article>
+
+             <article class="card mb-4 articulo-blog" id="articulo-blog-4">
+                <div class="card-body">
+                    <h2 class="card-title">BLABLA Title 4</h2>
+                    <p class="text-muted fecha-publicacion">Published on November 19, 2023</p>
+                    <p class="card-text">Post 4 introduces another stream of blablabla.</p>
+                    <p class="card-text">The variation of blablabla in Post 4 is important.</p>
+                    <p class="card-text">Let's delve into the blablabla for Post 4.</p>
+                    <p class="card-text">This is the end of blablabla for Post 4.</p>
+
+                    <div id="carruselArticulo4" class="carousel slide mb-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://via.placeholder.com/800x600/F0F0F0/000000?Text=Post4_Image1" class="d-block w-100" alt="Post 4 Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/800x600/0F0F0F/FFFFFF?Text=Post4_Image2" class="d-block w-100" alt="Post 4 Image 2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselArticulo4" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselArticulo4" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                    <div class="seccion-comentarios mt-4">
+                        <h3>Comentarios</h3>
+                        <div class="mb-3">
+                            <label for="entrada-comentario-4" class="form-label">Deja un comentario:</label>
+                            <textarea class="form-control entrada-comentario" id="entrada-comentario-4" rows="3" aria-label="Leave a comment for Post 4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary enviar-comentario">Enviar Comentario</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card mb-4 articulo-blog" id="articulo-blog-5">
+                <div class="card-body">
+                    <h2 class="card-title">BLABLA Title 5</h2>
+                    <p class="text-muted fecha-publicacion">Published on November 26, 2023</p>
+                    <p class="card-text">The fifth post's blablabla is here for your viewing.</p>
+                    <p class="card-text">Engage with the blablabla content of Post 5.</p>
+                    <p class="card-text">Further insights into the blablabla of Post 5.</p>
+                    <p class="card-text">Concluding thoughts on blablabla for Post 5.</p>
+                    <div id="carruselArticulo5" class="carousel slide mb-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://via.placeholder.com/800x600/E0BBE4/000000?Text=Post5_Image1" class="d-block w-100" alt="Post 5 Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/800x600/957DAD/FFFFFF?Text=Post5_Image2" class="d-block w-100" alt="Post 5 Image 2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselArticulo5" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselArticulo5" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                    <div class="seccion-comentarios mt-4">
+                        <h3>Comentarios</h3>
+                        <div class="mb-3">
+                            <label for="entrada-comentario-5" class="form-label">Deja un comentario:</label>
+                            <textarea class="form-control entrada-comentario" id="entrada-comentario-5" rows="3" aria-label="Leave a comment for Post 5"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary enviar-comentario">Enviar Comentario</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card mb-4 articulo-blog" id="articulo-blog-6">
+                <div class="card-body">
+                    <h2 class="card-title">BLABLA Title 6</h2>
+                    <p class="text-muted fecha-publicacion">Published on December 03, 2023</p>
+                    <p class="card-text">Finally, the blablabla for Post 6 has arrived.</p>
+                    <p class="card-text">This blablabla marks the last of the new posts.</p>
+                    <p class="card-text">Consider the implications of Post 6 blablabla.</p>
+                    <p class="card-text">The definitive end of blablabla for Post 6.</p>
+                    <div id="carruselArticulo6" class="carousel slide mb-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://via.placeholder.com/800x600/D291BC/000000?Text=Post6_Image1" class="d-block w-100" alt="Post 6 Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/800x600/FEC8D8/000000?Text=Post6_Image2" class="d-block w-100" alt="Post 6 Image 2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carruselArticulo6" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carruselArticulo6" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                    <div class="seccion-comentarios mt-4">
+                        <h3>Comentarios</h3>
+                        <div class="mb-3">
+                            <label for="entrada-comentario-6" class="form-label">Deja un comentario:</label>
+                            <textarea class="form-control entrada-comentario" id="entrada-comentario-6" rows="3" aria-label="Leave a comment for Post 6"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary enviar-comentario">Enviar Comentario</button>
+                    </div>
+                </div>
+            </article>
+
+        </main>
+    </div> {/* End .container */}
+
+    <footer class="text-white mt-5 p-4 text-center" id="pie-pagina">
+        <div class="container contenedor-pie-pagina">
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-3 informacion-contacto">
+                    <h4>Colegio</h4>
+                    <p>Mapuches 222 (8504), cross city, Argentina.</p>
+                    <p>Teléfonos: <a href="tel:+542914000001" class="text-white">(291) 400-0001</a>, <a href="tel:+542914000002" class="text-white">(291) 400-0002</a></p>
+                    <p>Email: <a href="mailto:padres@colegio.com.ar" class="text-white">padres@colegio.com.ar</a></p>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-3 navegacion-pie-pagina">
+                    <h4>Navegación</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="sj-index.html" class="text-white">Noticias</a></li>
+                        <li><a href="sj-index.html#institucional" class="text-white">Institucional</a></li>
+                        <li><a href="sj-blog.html" class="text-white">Blog (Actividades)</a></li>
+                        <li><a href="sj-index.html#eventos" class="text-white">Eventos (Actividades)</a></li>
+                        <li><a href="sj-index.html#consultas" class="text-white">Consultas</a></li>
+                        <li><a href="sj-index.html#contacto" class="text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <h4>Más Información</h4>
+                    <p>Únete a nuestra comunidad escolar.</p>
+                </div>
+            </div>
+            <div class="mt-3 pie-pagina-inferior">
+                <p>&copy; 2023 Familias por la Escuela. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

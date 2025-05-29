@@ -1,0 +1,197 @@
+/* Global Styles */
+body {
+    background-color: #FFF0F5; /* Light Old Rose */
+    color: #000080; /* Dark Blue Text for body */
+    padding-top: 70px; /* Default padding for fixed-top navbar. Adjust if navbar height differs. */
+}
+
+a {
+    color: #0000CD; /* Medium Blue for general links, can be overridden by Bootstrap components */
+}
+
+a:hover {
+    color: #000080; /* Darker blue on hover */
+}
+
+/* Section Titles */
+.titulo-seccion {
+    color: #000080; /* Dark Blue */
+    font-weight: bold;
+}
+
+/* Header (Bootstrap Navbar) */
+/* The bg-primary class in HTML sets the main background. We can override it if needed,
+   or define a new class if we want to avoid Bootstrap's !important usage.
+   Let's assume bg-primary (#0d6efd by default) is acceptable for now, or it has been
+   customized in a Bootstrap build. If strict #000080 is needed and bg-primary is different: */
+/*
+.cabecera-principal.navbar-dark {
+    background-color: #000080 !important;
+}
+*/
+
+/* Text color for logo and nav links on the standard (dark) navbar */
+.cabecera-principal.navbar-dark .texto-logo,
+.cabecera-principal.navbar-dark .navbar-nav .nav-link {
+    color: #FFFFFF; /* White text on dark background */
+}
+
+.cabecera-principal.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ADD8E6; /* Light Blue for hover */
+}
+
+/* Styles for when the header might become "sticky" and change background.
+   Bootstrap's fixed-top doesn't automatically change background on scroll.
+   If we were to implement a JS solution to change navbar class from navbar-dark to navbar-light
+   and a custom background class on scroll, then these would apply.
+   For now, fixed-top keeps the existing navbar style.
+   If a light background is applied (e.g., manually or via JS):
+.cabecera-principal.navbar-light.sticky-header-custom-bg {
+    background-color: #FFF0F5 !important;
+}
+
+.cabecera-principal.navbar-light.sticky-header-custom-bg .texto-logo,
+.cabecera-principal.navbar-light.sticky-header-custom-bg .navbar-nav .nav-link {
+    color: #000080 !important; // Dark Blue text
+}
+.cabecera-principal.navbar-light.sticky-header-custom-bg .navbar-nav .nav-link:hover {
+    color: #0000CD !important; // Medium Blue on hover
+}
+*/
+
+/* Breadcrumbs */
+.breadcrumb { /* Bootstrap's default breadcrumb class */
+    background-color: #f0f0f0; /* Original light grey background */
+    padding: 0.75rem 1rem; /* Add some padding */
+}
+
+.breadcrumb-item a {
+    color: #000080; /* Dark Blue for links */
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+/* Primary button (Leer más..., Enviar Comentario) - if Bootstrap's default blue is not #000080 */
+/*
+.btn-primary.boton-leer-mas,
+.btn-primary.enviar-comentario {
+    background-color: #000080;
+    border-color: #000080;
+    color: #FFF0F5; // Light Old Rose text
+}
+
+.btn-primary.boton-leer-mas:hover,
+.btn-primary.enviar-comentario:hover {
+    background-color: #0000CD; // Medium Blue
+    border-color: #0000CD;
+    color: #FFFFFF;
+}
+*/
+/* Assuming Bootstrap's .btn-primary is used. If specific color override is needed: */
+.boton-leer-mas, .enviar-comentario { /* Apply to custom classes if not directly using .btn-primary for targeting */
+    /* Example: if you used <button class="btn boton-leer-mas"> */
+    /* background-color: #000080; */
+    /* border-color: #000080; */
+    /* color: #FFF0F5; */
+}
+
+
+/* Blog Posts (Bootstrap Cards) */
+.articulo-blog.card {
+    /* Bootstrap card already has background #fff, border, and some shadow.
+       We can fine-tune if needed. */
+    border: 1px solid #ddd; /* Original border */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Original box-shadow */
+}
+
+.articulo-blog .card-title { /* h2 within card-body */
+    color: #000080; /* Dark Blue for post titles */
+    font-weight: bold;
+}
+
+.articulo-blog .fecha-publicacion {
+    color: #555; /* Slightly darker grey for publish date */
+    font-size: 0.85em;
+}
+
+.articulo-blog .card-text {
+    color: #333; /* Darker text for blog post content */
+}
+
+/* Footer */
+.pie-pagina {
+    background-color: #000080; /* Dark Blue */
+    color: #ADD8E6; /* Light French Blue for default text in footer */
+}
+
+.pie-pagina h4 {
+    color: #FFFFFF; /* White footer headings */
+    font-weight: bold;
+    border-bottom: 1px solid #ADD8E6;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.pie-pagina p {
+    color: #ADD8E6; /* Light French Blue for paragraphs */
+    margin-bottom: 10px;
+}
+
+.pie-pagina ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pie-pagina ul li {
+    margin-bottom: 10px; /* Consistent margin for list items */
+}
+
+.pie-pagina a {
+    color: #ADD8E6; /* Light French Blue for links */
+    text-decoration: none;
+}
+
+.pie-pagina a:hover {
+    color: #FFFFFF; /* White on hover for links */
+    text-decoration: underline;
+}
+
+.pie-pagina .pie-pagina-inferior {
+    border-top: 1px solid #000050; /* Darker shade of blue for separator */
+    padding-top: 20px;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+/* Ensure specificity if Bootstrap utilities are overriding footer link colors */
+.pie-pagina .informacion-contacto a,
+.pie-pagina .navegacion-pie-pagina a {
+    color: #ADD8E6;
+}
+
+.pie-pagina .informacion-contacto a:hover,
+.pie-pagina .navegacion-pie-pagina a:hover {
+    color: #FFFFFF;
+}
+
+/* Hero Section Image - if additional styling beyond img-fluid is needed */
+.seccion-heroica img {
+    /* max-height: 500px; /* From original style.css - if needed */
+    /* object-fit: cover; /* From original style.css - if needed */
+    border-radius: 5px; /* Optional: Rounded corners */
+}
+
+/* Latest Activity Section - if Bootstrap card/bg-light is not enough */
+.seccion-ultima-actividad {
+    /* background-color: #FFFFFF; /* Original was white */
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Original shadow */
+    /* border-radius: 5px; /* Original border-radius */
+}
+
+.seccion-ultima-actividad .descripcion-actividad p {
+    line-height: 1.7; /* Original line height */
+}
